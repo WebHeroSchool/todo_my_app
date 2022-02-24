@@ -1,9 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 
-const word = 'DELL';
-const num = 73;
-const log = false;
+import {count, length} from './number.js';
+
 
 function App() {
   return (
@@ -15,21 +14,7 @@ function App() {
         </p>
 
         <p>
-          {word}
-        </p>
-        <p>
-          {num}
-        </p>
-        <p style={{
-          fontSize: 54 - 48
-        }}>
-        Hello Hello
-        </p>
-        <p>
-          {log && 'log is true'}
-        </p>
-        <p>
-          {log ? 'log is true' : 'log is false'}
+          {count * length}
         </p>
 
         <a
