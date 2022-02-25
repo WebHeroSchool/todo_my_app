@@ -4,11 +4,11 @@ import React from 'react';
 const ItemList = () => (<ul>
   <li>1</li>
   <li>2</li>
-</ul>;
+</ul>);
 
 const App = () => (<div>
   <h1>Hello</h1>
   <ItemList />
 </div>);
 
-export default <App />
+export default App;
