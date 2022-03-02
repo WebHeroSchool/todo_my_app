@@ -2,8 +2,8 @@ import React from 'react';
 import Item from '../Item/Item';
 
 const ItemList = ({todoItem}) => (<ul>
-	{todoItem.map (items => <li key = {items.value}>)
-		<Item value = {items.value} />
+	{todoItem.map (item => <li key = {item.value}>
+		<Item value = {item.value} />
 	</li>)}
 </ul>);
 
