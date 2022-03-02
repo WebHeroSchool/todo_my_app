@@ -3,12 +3,12 @@ import ItemList from '../ItemList/ItemList';
 import InputItem from '../InputItem/InputItem';
 import Footer from '../Footer/Footer';
 
-const todoItem = {
-	taskOne: 'Пройти модуль React до конца',
-	taskTwo: 'Составить резюме',
-	taskThree: 'Устроиться разработчиком',
-	taskFour: 'Кайфовать от того чем теперь занимаешься'
-};
+const todoItem = [
+	{ value: 'Пройти модуль React до конца'},
+	{ value: 'Составить резюме'},
+	{ value: 'Устроиться разработчиком'},
+	{ value: 'Кайфовать от того чем теперь занимаешься'}
+];
 
 const App = () => (<div>
   <h1>Список дел:</h1>
@@ -17,4 +17,3 @@ const App = () => (<div>
   <Footer count = {3}/>
 </div>);
 
-export default App;
