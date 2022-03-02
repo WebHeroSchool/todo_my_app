@@ -7,3 +7,4 @@ const ItemList = ({todoItem}) => (<ul>
 	</li>)}
 </ul>);
 
+export default ItemList;
