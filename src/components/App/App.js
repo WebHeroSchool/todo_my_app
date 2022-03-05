@@ -6,18 +6,22 @@ import styles from './App.module.css';
 
 const App = () => {
 	const todoItem = [
-		{ value: 'Пройти модуль React до конца'},
-		{ value: 'Составить резюме'},
-		{ value: 'Устроиться разработчиком'},
-		{ value: 'Кайфовать от того чем теперь занимаешься'}
+		{ value: 'Подключение стилей',
+		  isDone: true},
+		{ value: 'CSS Modules',
+		  isDone: true},
+		{ value: 'classnames',
+		  isDone: false},
+		{ value: 'Готовые библиотеки компонентов',
+			isDone: false}
 	];
 
 	return (
 	<div className={styles.wrap}>
-  	<h1 className={styles.title}>Список дел:</h1>
+  	<h1 className={styles.title}>Список уроков:</h1>
     <InputItem />
     <ItemList todoItem = {todoItem} />
-    <Footer count = {3}/>
+    <Footer count = {17}/>
   </div>);
 }
 	
