@@ -11,8 +11,16 @@ const App = () => {
 		{ value: 'CSS Modules',
 		  isDone: true},
 		{ value: 'classnames',
-		  isDone: false},
+		  isDone: true},
 		{ value: 'Готовые библиотеки компонентов',
+			isDone: true},
+		{ value: 'Стилизация приложения',
+		  isDone: false},
+		{ value: 'Компоненты-классы',
+		  isDone: false},
+		{ value: 'State',
+		  isDone: false},
+		{ value: 'Обработка событий',
 			isDone: false}
 	];
 
@@ -21,7 +29,7 @@ const App = () => {
   	<h1 className={styles.title}>Список уроков:</h1>
     <InputItem />
     <ItemList todoItem = {todoItem} />
-    <Footer count = {17}/>
+    <Footer count = {16}/>
   </div>);
 }
 	
