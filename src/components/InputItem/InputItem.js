@@ -6,7 +6,7 @@ const InputItem = () => (<div>
     id="standard-helperText"
     label="Ввести название урока"
     defaultValue=""
-    />
+  />
 </div>);
 
 export default InputItem;
