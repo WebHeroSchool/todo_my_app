@@ -27,7 +27,7 @@ const App = () => {
 	return (
 	<div className={styles.wrap}>
   	<h1 className={styles.title}>Список уроков:</h1>
-    <InputItem />
+    	<InputItem />
     <ItemList todoItem = {todoItem} />
     <Footer count = {16}/>
   </div>);

@@ -1,0 +1,13 @@
+.footer {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 10px;
+}
+
+.count {
+ margin-top: 5px;
+}
+
+.filters {
+	margin-left: 30px;
+}
