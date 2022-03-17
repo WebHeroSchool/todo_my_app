@@ -8,7 +8,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import DeleteIcon from '@mui/icons-material/Delete';
-
+ 
 const ItemList = ({todoItem}) => (<div>
 	{todoItem.map(item => 
 		  <ListItem key={item.value} className={styles.item}>
