@@ -20,11 +20,11 @@ class App extends React.Component {
 			{ value: 'Компоненты-классы',
 		  	isDone: true},
 			{ value: 'State',
-		  	isDone: false},
+		  	isDone: true},
 			{ value: 'Обработка событий',
 			  isDone: false}
-		];
-	}
+		]
+	};
     render () {
 		return (
 			<div className={styles.wrap}>
