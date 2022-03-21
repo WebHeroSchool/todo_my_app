@@ -9,14 +9,15 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import DeleteIcon from '@mui/icons-material/Delete';
  
-const ItemList = ({todoItem}) => (<div>
-	{todoItem.map(item => 
+const ItemList = ({todoItems, isDone, onClickDone}) => (<div>
+	{todoItems.map(item => 
 		  <ListItem key={item.value} className={styles.item}>
         	<ListItemIcon>
-           		<Checkbox inputProps={{ 'aria-label': 'primary checkbox'}} />
+           		<Checkbox inputProps={{ 'aria-label': 'primary checkbox'}} 
+                onClick= {() => console.log(item.isDone)} />
          	</ListItemIcon>
          	<ListItemText> 
-         		<Item value={item.value} isDone={item.isDone} />
+         		<Item value={item.value} isDone={item.isDone} onClickDone={onClickDone} />
          	</ListItemText>
 
 			<IconButton aria-label="delete">

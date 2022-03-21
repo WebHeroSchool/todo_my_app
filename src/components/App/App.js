@@ -6,32 +6,36 @@ import styles from './App.module.css';
 
 class App extends React.Component {
 	state = {
-		todoItem: [
-			{ value: 'Подключение стилей',
-		  	isDone: true},
-			{ value: 'CSS Modules',
-		  	isDone: true},
-			{ value: 'classnames',
-		  	isDone: true},
-			{ value: 'Готовые библиотеки компонентов',
-			  isDone: true},
-			{ value: 'Стилизация приложения',
-		  	isDone: true},
+		todoItems: [
 			{ value: 'Компоненты-классы',
 		  	isDone: true},
 			{ value: 'State',
 		  	isDone: true},
 			{ value: 'Обработка событий',
-			  isDone: false}
+			  isDone: false},
+			{ value: 'Изменение состояния. SetState',
+		  	isDone: false},
+			{ value: 'Передача данных и методов между компонентами',
+		  	isDone: false},
+			{ value: 'Добавление элемента. Работа с формами',
+		  	isDone: false},
+			{ value: 'defaultProps',
+			  isDone: false},
+			{ value: 'prop-types',
+		  	isDone: false}
 		]
 	};
+
+  onClickDone = isDone =>
+    console.log(isDone);
+
     render () {
 		return (
 			<div className={styles.wrap}>
   			<h1 className={styles.title}>Список уроков:</h1>
     		<InputItem />
-    		<ItemList todoItem = {this.state.todoItem} />
-    		<Footer count = {14}/>
+    		<ItemList todoItems = {this.state.todoItems} onClickDone = {this.onClickDone} />
+    		<Footer count = {13}/>
   		</div>);
 	}
 }
