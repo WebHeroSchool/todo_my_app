@@ -9,8 +9,8 @@ const buttons = [
   <Button key="completed">Завершенные</Button>
 ];
 
-const Footer = ({count}) => (<footer className={styles.footer}>
-	<div className={styles.count}>Осталось уроков: {count}</div>
+const Footer = ({count, onClickFooter}) => (<footer className={styles.footer} onClick={onClickFooter}>
+	<div className={styles.count}  >Осталось уроков: {count}</div>
 	<div className={styles.filters}>
 		<ButtonGroup size="small" aria-label="small button group">
 			{buttons}

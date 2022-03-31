@@ -4,7 +4,7 @@ import classnames from 'classnames';
 //import Checkbox from '@material-ui/core/Checkbox';
 //import FormControlLabel from '@material-ui/core/FormControlLabel';
 
-const Item = ({value, isDone, onClickDone}) => (<span className = {
+const Item = ({value, isDone, onClickDone, id}) => (<span className = {
 		classnames ({
 			[styles.item]: true,
 			[styles.done]: isDone
