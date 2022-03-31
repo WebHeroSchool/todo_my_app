@@ -16,7 +16,9 @@ const ItemList = ({todoItems, isDone, onClickDone, id}) => (<div>
 		  <ListItem key={item.value} className={styles.item}>
         	<ListItemIcon>
            		<Checkbox 
-                inputProps={{ 'aria-label': 'primary checkbox'}} />
+                inputProps={{ 'aria-label': 'primary checkbox'}} 
+                onClickDone= {() => onClickDone(id)}
+              />
          	</ListItemIcon>
          	<ListItemText > 
          		<Item 
