@@ -1,17 +1,33 @@
 import React from 'react';
 import styles from './Item.module.css';
 import classnames from 'classnames';
-//import Checkbox from '@material-ui/core/Checkbox';
-//import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
 
-const Item = ({value, isDone, onClickDone, id}) => (<span className = {
-		classnames ({
-			[styles.item]: true,
-			[styles.done]: isDone
-		})
-	}> {value}
-		
+import IconButton from '@mui/material/IconButton';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import DeleteIcon from '@mui/icons-material/Delete';
 
-	</span>);
+const Item = ({ value, isDone, onClickDone, id}) => (
+	<ListItem className={styles.item}>
+        <ListItemIcon>
+       		<Checkbox 
+                inputProps={{ 'aria-label': 'primary checkbox'}} 
+                onClick= {() => onClickDone(id)}
+            />
+      	</ListItemIcon>
+       	<ListItemText primary={value} className = {
+			classnames ({
+				[styles.item]: true,
+				[styles.done]: isDone
+			})
+		}>
+        </ListItemText>
+		<IconButton aria-label="delete">
+			<DeleteIcon />
+		</IconButton>
+  	</ListItem>
+ )
 
 export default Item;
