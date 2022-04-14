@@ -8,34 +8,57 @@ class App extends React.Component {
 	state = {
 		todoItems: [
 			{ value: 'Компоненты-классы',
-		  	isDone: true},
+		  	isDone: false,
+			  id:1
+			},
 			{ value: 'State',
-		  	isDone: true},
+		  	isDone: false,
+				id:2
+			},
 			{ value: 'Обработка событий',
-			  isDone: false},
+			  isDone: false,
+				id:3
+			},
 			{ value: 'Изменение состояния. SetState',
-		  	isDone: false},
-			{ value: 'Передача данных и методов между компонентами',
-		  	isDone: false},
-			{ value: 'Добавление элемента. Работа с формами',
-		  	isDone: false},
-			{ value: 'defaultProps',
-			  isDone: false},
-			{ value: 'prop-types',
-		  	isDone: false}
-		]
+		  	isDone: false,
+				id:4
+			},
+		],
+		count: 6
 	};
 
-  onClickDone = isDone =>
-    console.log(isDone);
+  onClickDone = id => {
+    const newItemList = this.state.todoItems.map(item => {
+      const newItem = {...item};
+      if (item.id===id) {
+        newItem.isDone = !item.isDone;
+      }
+      return newItem;
+    });
+    this.setState({todoItems: newItemList});
+  }
+  
+  onClickDelete = id => {
+    const newItemList = this.state.todoItems.filter(item => item.id !==id)
+    this.setState({todoItems: newItemList});
+  }
+
+  onClickFooter = () => this.setState(state => ({count: state.count -1}));
 
     render () {
 		return (
 			<div className={styles.wrap}>
   			<h1 className={styles.title}>Список уроков:</h1>
     		<InputItem />
-    		<ItemList todoItems = {this.state.todoItems} onClickDone = {this.onClickDone} />
-    		<Footer count = {13}/>
+    		<ItemList 
+          todoItems = {this.state.todoItems} 
+          onClickDone = {this.onClickDone} 
+          onClickDelete={this.onClickDelete}
+        />
+    		<Footer 
+          count = {this.state.count}  
+          onClickFooter={this.onClickFooter}
+        />
   		</div>);
 	}
 }
