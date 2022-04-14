@@ -10,7 +10,7 @@ import ListItemText from '@mui/material/ListItemText';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 const Item = ({ value, isDone, onClickDone, id, onClickDelete }) => (
-	<ListItem key={item.id}
+	<ListItem 
 	  className = {styles.item}>
         <ListItemIcon>
        		<Checkbox 
