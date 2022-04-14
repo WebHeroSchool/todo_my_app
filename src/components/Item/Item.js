@@ -9,8 +9,9 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-const Item = ({ value, isDone, onClickDone, id}) => (
-	<ListItem className={styles.item}>
+const Item = ({ value, isDone, onClickDone, id, onClickDelete }) => (
+	<ListItem key={item.id}
+	  className = {styles.item}>
         <ListItemIcon>
        		<Checkbox 
                 inputProps={{ 'aria-label': 'primary checkbox'}} 
@@ -24,8 +25,8 @@ const Item = ({ value, isDone, onClickDone, id}) => (
 			})
 		}>
         </ListItemText>
-		<IconButton aria-label="delete">
-			<DeleteIcon />
+		<IconButton aria-label="delete" onClick={() => onClickDelete(id)}>
+			<DeleteIcon  />
 		</IconButton>
   	</ListItem>
  )

@@ -37,6 +37,11 @@ class App extends React.Component {
     });
     this.setState({todoItems: newItemList});
   }
+  
+  onClickDelete = id => {
+    const newItemListDelete = this.state.todoItems.map(item => item.id !==id)
+    this.setState({todoItems: newItemListDelete});
+  }
 
   onClickFooter = () => this.setState(state => ({count: state.count -1}));
 
@@ -45,8 +50,15 @@ class App extends React.Component {
 			<div className={styles.wrap}>
   			<h1 className={styles.title}>Список уроков:</h1>
     		<InputItem />
-    		<ItemList todoItems = {this.state.todoItems} onClickDone = {this.onClickDone} />
-    		<Footer count = {this.state.count}  onClickFooter={this.onClickFooter} />
+    		<ItemList 
+          todoItems = {this.state.todoItems} 
+          onClickDone = {this.onClickDone} 
+          onClickDelete={this.onClickDelete}
+        />
+    		<Footer 
+          count = {this.state.count}  
+          onClickFooter={this.onClickFooter}
+        />
   		</div>);
 	}
 }
