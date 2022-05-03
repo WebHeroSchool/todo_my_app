@@ -4,7 +4,7 @@ import Item from '../Item/Item';
 
 const ItemList = ({ todoItems, onClickDone, onClickDelete, id }) => (<List>
   {todoItems.map(item => <div key={item.id}>
-    <Item 
+    <Item
       value={item.value}
       isDone={item.isDone}
       id={item.id}
