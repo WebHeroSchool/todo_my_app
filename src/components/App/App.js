@@ -65,8 +65,6 @@ class App extends React.Component {
     this.setState({todoItems: newItemList});
   }
 
-  //onClickFooter = () => this.setState(state => ({count: state.count -1}));
-
     render () {
 
 		return (
@@ -82,10 +80,7 @@ class App extends React.Component {
           onClickDone = {this.onClickDone}
           onClickDelete={this.onClickDelete}
         />
-    		<Footer
-          //count = {this.state.count}
-          //onClickFooter={this.onClickFooter}
-        />
+    		<Footer />
   		</div>);
 	}
 }
