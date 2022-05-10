@@ -9,8 +9,25 @@ import ListItemText from '@mui/material/ListItemText';
 import DeleteIcon from '@mui/icons-material/Delete';
 import styles from './Item.module.css';
 
-const Item = ({ value, isDone, onClickDone, id, onClickDelete }) => (
-	<ListItem
+
+class Item extends React.Component {
+	componentDidMount() {
+		console.log('componentDidMount')
+	}
+
+	componentDidUpdate() {
+		console.log('componentDidUpdate')
+	}
+
+	componentWillUnmounting() {
+		console.log('componentWillUnmounting')
+	}
+
+	render() {
+		const { value, isDone, onClickDone, id, onClickDelete } = this.props;
+
+		return (
+			<ListItem
 	  className = {styles.item}>
       <ListItemIcon>
      		<Checkbox
@@ -29,13 +46,11 @@ const Item = ({ value, isDone, onClickDone, id, onClickDelete }) => (
         onClick={() => onClickDelete(id)}>
 			<DeleteIcon  />
 			</IconButton>
-  	</ListItem>
-);
-
-Item.defaultProps = {
-	isDone: false,
-	id:0
+  	</ListItem>);
+	}
 }
+
+
 
 Item.propTypes = {
 	value: PropTypes.oneOfType([
