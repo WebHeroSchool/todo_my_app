@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import Checkbox from '@material-ui/core/Checkbox';
 import IconButton from '@mui/material/IconButton';
 import ListItem from '@mui/material/ListItem';
@@ -43,7 +43,9 @@ Item.propTypes = {
 		PropTypes.number
 	]),
   isDone: PropTypes.bool,
-  id: PropTypes.number
+  onClickDone: PropTypes.func,
+  id: PropTypes.number,
+  onClickDelete: PropTypes.func
 }
 
 export default Item;
