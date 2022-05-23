@@ -9,7 +9,6 @@ import ListItemText from '@mui/material/ListItemText';
 import DeleteIcon from '@mui/icons-material/Delete';
 import styles from './Item.module.css';
 
-
 class Item extends React.Component {
 	componentDidMount() {
 		console.log('componentDidMount')
@@ -56,7 +55,7 @@ Item.propTypes = {
 		PropTypes.number
 	]),
   isDone: PropTypes.bool,
-  id: PropTypes.number
+  id: PropTypes.number,
   onClickDone: PropTypes.func,
   id: PropTypes.number,
   onClickDelete: PropTypes.func
