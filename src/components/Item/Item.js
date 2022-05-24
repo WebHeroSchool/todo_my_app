@@ -11,15 +11,17 @@ import styles from './Item.module.css';
 
 class Item extends React.Component {
 	componentDidMount() {
-		console.log('componentDidMount')
+		//console.log('componentDidMount')
+		this.timerID=	setInterval(() => console.log('interval'),1000);
 	}
 
 	componentDidUpdate() {
 		console.log('componentDidUpdate')
 	}
 
-	componentWillUnmounting() {
-		console.log('componentWillUnmounting')
+	componentWillUnmount() {
+		//console.log('componentWillUnmounting')
+		clearInterval(this.timerID);
 	}
 
 	render() {
