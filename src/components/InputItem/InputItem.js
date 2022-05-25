@@ -1,4 +1,5 @@
 ﻿import React from 'react';
+import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import Button from '@mui/material/Button';
 import styles from './InputItem.module.css';
@@ -53,5 +54,11 @@ class InputItem extends React.Component {
   </div>);
   }
 }
+
+InputItem.propTypes = {
+  onClickAdd: PropTypes.func,
+  error: PropTypes.bool
+}
+
 
 export default InputItem;
