@@ -19,8 +19,6 @@ const Footer = ({count}) => (<footer className={styles.footer}>
 	</div>
 </footer>);
 
-
-
 Footer.propTypes = {
 	count: PropTypes.number
 }
