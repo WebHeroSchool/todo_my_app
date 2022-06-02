@@ -1,88 +1,97 @@
-﻿import React from 'react';
+﻿import React, {useState, useEffect} from 'react';
 import ItemList from '../ItemList/ItemList';
 import InputItem from '../InputItem/InputItem';
 import Footer from '../Footer/Footer';
 import styles from './App.module.css';
 
-class App extends React.Component {
-	state = {
-		todoItems: [
-  		{ value: 'Компоненты-классы',
-		  	isDone: false,
-			  id:1
-			},
+//class App extends React.Component {
+const App = () => {
+  const initialState = {
+    todoItems: [
+      { value: 'Компоненты-классы',
+        isDone: false,
+        id:1
+      },
 
-			{ value: 'State',
-		  	isDone: false,
-				id:2
-			},
+      { value: 'State',
+        isDone: false,
+        id:2
+      },
 
-			{ value: 'Обработка событий',
-			  isDone: false,
-				id:3
-			},
+      { value: 'Обработка событий',
+        isDone: false,
+        id:3
+      },
 
-			{ value: 'Изменение состояния. SetState',
-		  	isDone: false,
-				id:4
-			},
-		],
-		count: 4
-	};
+      { value: 'Изменение состояния. SetState',
+        isDone: false,
+        id:4
+      },
+    ],
+    count: 4,
+    error: false
+  };
 
-  onClickAdd = value => {
+  const [todoItems, setTodoItems] = useState(initialState.todoItems);
+	const [count, setCount] = useState(initialState.count);
+  const [error, setError] = useState(initialState.error);
+
+  useEffect(() => {
+    console.log('componentDidMount')
+  }, []);
+
+  useEffect(() => {
+    console.log('componentDidUpdete')
+  });
+
+  const onClickAdd = (value) => {
   	if(value !== '') {
-      this.setState(state => ({
- 	      todoItems: [
-          ...state.todoItems,
-          {
-            value,
-            isDone: false,
-            id: state.count + 1
-          }
- 	      ],
-        count: state.count + 1,
-        error: false
-      }));
+      let newItemList = [
+        ...todoItems,
+        {
+          value,
+          isDone: false,
+          id: count + 1
+        }
+ 	    ];
+      setTodoItems(newItemList)
+      setCount(count + 1)
+      setError(false)
     } else {
-      this.setState(state => ({error: true}))
+      setError(true)
     }
   };
 	 
-  onClickDone = id => {
-    const newItemList = this.state.todoItems.map(item => {
+  const onClickDone = (id) => {
+    const newItemList = todoItems.map(item => {
       const newItem = {...item};
       if (item.id===id) {
         newItem.isDone = !item.isDone;
       }
       return newItem;
     });
-    this.setState({todoItems: newItemList});
+    setTodoItems(newItemList);
   }
 
-  onClickDelete = id => {
-    const newItemList = this.state.todoItems.filter(item => item.id !==id)
-    this.setState({todoItems: newItemList});
+  const onClickDelete = (id) => {
+    const newItemList = todoItems.filter(item => item.id !==id)
+    setTodoItems(newItemList);
   }
-
-    render () {
 
 		return (
-
 			<div className={styles.wrap}>
   			<h1 className={styles.title}>Список уроков:</h1>
     		<InputItem
-       		onClickAdd={this.onClickAdd}
-    			error={this.state.error}
+       		onClickAdd={onClickAdd}
+    			error={error}
         />
     		<ItemList
-          todoItems = {this.state.todoItems}
-          onClickDone = {this.onClickDone}
-          onClickDelete={this.onClickDelete}
+          todoItems = {todoItems}
+          onClickDone = {onClickDone}
+          onClickDelete={onClickDelete}
         />
-    		<Footer count={this.state.count} />
+    		<Footer count={count} />
   		</div>);
-	}
 }
 
 export default App;
