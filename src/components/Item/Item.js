@@ -46,7 +46,6 @@ Item.propTypes = {
   isDone: PropTypes.bool,
   id: PropTypes.number,
   onClickDone: PropTypes.func,
-  id: PropTypes.number,
   onClickDelete: PropTypes.func
 }
 

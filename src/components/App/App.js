@@ -1,97 +1,36 @@
-﻿import React, {useState, useEffect} from 'react';
-import ItemList from '../ItemList/ItemList';
-import InputItem from '../InputItem/InputItem';
-import Footer from '../Footer/Footer';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+
+import Card from '@mui/material/Card';
+import MenuItem from '@mui/material/MenuItem';
+import MenuList from '@mui/material/MenuList';
+
+import Todo from '../Todo/Todo';
+import About from '../About/About';
+import Contacts from '../Contacts/Contacts';
+
 import styles from './App.module.css';
 
-//class App extends React.Component {
-const App = () => {
-  const initialState = {
-    todoItems: [
-      { value: 'Компоненты-классы',
-        isDone: false,
-        id:1
-      },
+const App = () => (
+  <Router>
+    <div className={styles.wrap}>
+      <Card className={styles.sidebar}>
+        <MenuList className={styles.menu}>
+          <Link to='/' className={styles.link}><MenuItem>Обо мне</MenuItem></Link>
+          <Link to='/todo' className={styles.link}><MenuItem>Дела</MenuItem></Link>
+          <Link to='/contacts' className={styles.link}><MenuItem>Контакты</MenuItem></Link>
+        </MenuList>
+      </Card>
+      <Card className={styles.content}>
+        <Routes>
+          <Route path='/' exact element={<About/>} />
+          <Route path='/todo' element={<Todo/>} />
+          <Route path='/contacts' element={<Contacts/>} />
+        </Routes>
+        
+      </Card>
+    </div>
+  </Router>);
 
-      { value: 'State',
-        isDone: false,
-        id:2
-      },
-
-      { value: 'Обработка событий',
-        isDone: false,
-        id:3
-      },
-
-      { value: 'Изменение состояния. SetState',
-        isDone: false,
-        id:4
-      },
-    ],
-    count: 4,
-    error: false
-  };
-
-  const [todoItems, setTodoItems] = useState(initialState.todoItems);
-	const [count, setCount] = useState(initialState.count);
-  const [error, setError] = useState(initialState.error);
-
-  useEffect(() => {
-    console.log('componentDidMount')
-  }, []);
-
-  useEffect(() => {
-    console.log('componentDidUpdete')
-  });
-
-  const onClickAdd = (value) => {
-  	if(value !== '') {
-      let newItemList = [
-        ...todoItems,
-        {
-          value,
-          isDone: false,
-          id: count + 1
-        }
- 	    ];
-      setTodoItems(newItemList)
-      setCount(count + 1)
-      setError(false)
-    } else {
-      setError(true)
-    }
-  };
-	 
-  const onClickDone = (id) => {
-    const newItemList = todoItems.map(item => {
-      const newItem = {...item};
-      if (item.id===id) {
-        newItem.isDone = !item.isDone;
-      }
-      return newItem;
-    });
-    setTodoItems(newItemList);
-  }
-
-  const onClickDelete = (id) => {
-    const newItemList = todoItems.filter(item => item.id !==id)
-    setTodoItems(newItemList);
-  }
-
-		return (
-			<div className={styles.wrap}>
-  			<h1 className={styles.title}>Список уроков:</h1>
-    		<InputItem
-       		onClickAdd={onClickAdd}
-    			error={error}
-        />
-    		<ItemList
-          todoItems = {todoItems}
-          onClickDone = {onClickDone}
-          onClickDelete={onClickDelete}
-        />
-    		<Footer count={count} />
-  		</div>);
-}
 
 export default App;
