@@ -3,3 +3,18 @@
 	padding: 5%;
 	text-align: center;
 }
+
+.avatar {
+	margin: auto;
+}
+
+.lilink {
+	text-align: left;
+	margin-bottom: 5px;
+}
+
+.link {
+	text-decoration: none;
+	color: black;
+	
+}
